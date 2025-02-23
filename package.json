@@ -4,7 +4,7 @@
   "description": "Submssions for part4 exercises of fullstackopen cours",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test",
     "dev": "nodemon index.js"
   },
   "author": "Erick B",
