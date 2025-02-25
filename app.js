@@ -4,7 +4,7 @@ const cors = require('cors')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
 const blogsRouter = require('./controllers/blogs')
-
+require('express-async-errors')
 const app = express()
 
 app.use(cors())
