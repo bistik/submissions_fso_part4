@@ -4,19 +4,22 @@
   "description": "Submssions for part4 exercises of fullstackopen cours",
   "main": "index.js",
   "scripts": {
-    "test": "node --test",
-    "dev": "nodemon index.js"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "test": "cross-env NODE_ENV=test node --test",
+    "dev": "cross-env NODE_ENV=development nodemon index.js"
   },
   "author": "Erick B",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "lodash": "^4.17.21",
     "mongoose": "^8.10.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "supertest": "^7.0.0"
   }
 }
