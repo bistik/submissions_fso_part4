@@ -7,6 +7,9 @@ const usersRouter = express.Router();
 usersRouter.post('/', async (req, res) => {
   const { username, name, password } = req.body;
 
+  if (!password || password.length < 3) {
+    return res.status(400).json({ error: 'Password must be at least 3 characters long' });
+  }
   const saltRounds = 10
   const passwordHash = await bcrypt.hash(password, saltRounds)
 
@@ -22,7 +25,7 @@ usersRouter.post('/', async (req, res) => {
 
 usersRouter.get('/', async (req, res) => {
   try {
-    const users = await User.find({});
+    const users = await User.find({}).populate('blogs');
     res.json(users);
   } catch (error) {
     res.status(500).json({ error: 'Something went wrong' });

@@ -47,6 +47,22 @@ describe('user validation tests', () => {
 
     assert.strictEqual(result.body.error, 'expected `username` to be unique')
   })
+
+  test('minimum password length', async () => {
+    const newUser = {
+      username: 'validuser',
+      name: 'Valid User',
+      password: 'pw'
+    }
+
+    const result = await api
+      .post('/api/users')
+      .send(newUser)
+      .expect(400)
+      .expect('Content-Type', /application\/json/)
+
+    assert(result.body.error.includes('Password must be at least 3 characters long'))
+  })
 })
 
 test('valid user creation', async () => {
