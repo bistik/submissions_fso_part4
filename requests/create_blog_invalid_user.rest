@@ -1,0 +1,11 @@
+
+POST {{host}}/api/blogs HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer invalid-token
+
+{
+  "title": "Lorem impsum 2",
+  "author": "John Doe",
+  "url": "https://example.com/lorem-ipsum-2",
+  "likes": 1
+}

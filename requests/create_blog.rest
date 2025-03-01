@@ -1,11 +1,11 @@
 
-POST http://localhost:3003/api/blogs HTTP/1.1
+POST {{host}}/api/blogs HTTP/1.1
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-  "title": "Lorem impsum",
+  "title": "Lorem impsum 8",
   "author": "John Doe",
-  "url": "https://example.com/a-test",
-  "userId": "67c1a1f1b4c6c465bac79873",
+  "url": "https://example.com/lorem-ipsum-8",
   "likes": 1
 }

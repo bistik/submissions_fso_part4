@@ -1,0 +1,7 @@
+POST {{host}}/api/login
+Content-Type: application/json
+
+{
+  "username": "foo",
+  "password": {{userpassword}}
+}
