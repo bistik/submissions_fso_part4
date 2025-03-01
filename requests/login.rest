@@ -2,6 +2,6 @@ POST {{host}}/api/login
 Content-Type: application/json
 
 {
-  "username": "foo",
+  "username": {{username}},
   "password": {{userpassword}}
 }

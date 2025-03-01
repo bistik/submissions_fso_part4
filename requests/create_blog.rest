@@ -4,8 +4,8 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "title": "Lorem impsum 8",
+  "title": "lipsum-11",
   "author": "John Doe",
-  "url": "https://example.com/lorem-ipsum-8",
+  "url": "https://example.com/lipsum-11",
   "likes": 1
 }
