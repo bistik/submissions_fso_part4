@@ -1,0 +1,8 @@
+
+PUT {{host}}/api/blogs/67c1a35c985f1c510945b9fc HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "likes": 99
+}

@@ -34,14 +34,20 @@ blogsRouter.delete('/:id', middleware.userExtractor, async (request, response) =
   response.status(204).end()
 })
 
-blogsRouter.put('/:id', async (request, response) => {
-  const body = request.body
-
-  const blog = {
-    likes: body.likes
+blogsRouter.put('/:id', middleware.userExtractor, async (request, response) => {
+  const blog = await Blog.findById(request.params.id)
+  if (!blog) {
+    return response.status(404).json({ error: 'blog not found' })
+  }
+  if (blog.user.toString() !== request.user.id.toString()) {
+    return response.status(401).json({ error: 'unauthorized' })
   }
 
-  const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
+  const blogUpdateLikes = {
+    likes: request.body.likes
+  }
+
+  const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blogUpdateLikes, { new: true })
   
   response.json(updatedBlog)
 })
